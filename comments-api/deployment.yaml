@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-api
+  labels:
+    app: comments-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comments-api
+  template:
+    metadata:
+      labels:
+        app: comments-api
+    spec:
+      containers:
+        - name: comments-api
+          image: kseniasavkina/comments-api:1.0.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_ADMIN
+              value: http://admin/spring-admin

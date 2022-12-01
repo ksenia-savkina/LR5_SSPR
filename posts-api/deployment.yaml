@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-api
+  labels:
+    app: posts-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts-api
+  template:
+    metadata:
+      labels:
+        app: posts-api
+    spec:
+      containers:
+        - name: posts-api
+          image: kseniasavkina/posts-api:1.0.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_ADMIN
+              value: http://admin/spring-admin

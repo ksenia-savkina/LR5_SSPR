@@ -1,0 +1,4 @@
+rootProject.name = 'LR5_SSPR'
+include 'admin'
+include 'comments-api'
+include 'posts-api'
